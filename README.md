@@ -9,7 +9,7 @@ local Window = OrionLib:MakeWindow({
 
 local Tab = Window:MakeTab({
     Name = "Auto Farm",
-    Icon = "rbxassetid://4483345998",
+    Icon = "rbxassetid://17616325905",
     PremiumOnly = false
 })
 
@@ -24,8 +24,38 @@ OrionLib:MakeNotification({
     Time = 5
 })
 
+Tab:AddLabel("City Farm")
+
 Tab:AddButton({
-    Name = "Auto Farm Orb",
+    Name = "City Red Orb",
+    Callback = function()
+        _G.loop = true
+        while _G.loop do
+            wait()
+            for i = 1, 200 do
+                game:GetService('ReplicatedStorage').rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
+            end
+        end
+    end
+})
+
+Tab:AddButton({
+   Name = "City Orange Orb",
+   Callback = function()
+     _G.loop = true
+     while _G.loop do
+       Wait()
+       for i = 1, 200 do
+         game:GetService('ReplicatedStorage').rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
+            end
+        end
+    end
+})
+
+Tab:AddLabel("Magma Farm")
+
+Tab:AddButton({
+    Name = "Magma City Red Orb",
     Callback = function()
         _G.loop = true
         while _G.loop do
@@ -37,6 +67,28 @@ Tab:AddButton({
     end
 })
 
-local bb=game:service'VirtualUser'
-game:service'Players'.LocalPlayer.Idled:connect(function()
-bb:CaptureController()bb:ClickButton2(Vector2.new())
+Tab:AddButton({
+   Name = "Magma City Orange Orb",
+   Callback = function()
+     _G.loop = true
+     while _G.loop do
+       Wait()
+       for i = 1, 200 do
+         game:GetService('ReplicatedStorage').rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "Magma City")
+            end
+        end
+    end
+})
+
+local Tab = Window:MakeTab({
+    Name = "Auto Race",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Auto Race",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer()
+  	end    
+})
