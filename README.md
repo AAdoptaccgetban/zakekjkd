@@ -8,19 +8,6 @@ local Window = OrionLib:MakeWindow({
 })
 
 local Tab = Window:MakeTab({
-    Name = "Auto Race",
-    Icon = "rbxassetid://4483345998",
-    PremiumOnly = false
-})
-
-Tab:AddButton({
-	Name = "Auto Race",
-	Callback = function()
-      		game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer()
-  	end    
-})
-
-local Tab = Window:MakeTab({
     Name = "Auto Farm",
     Icon = "rbxassetid://17616325905",
     PremiumOnly = false
@@ -38,6 +25,13 @@ OrionLib:MakeNotification({
 })
 
 Tab:AddLabel("City Farm")
+
+Tab:AddButton({
+	Name = "Auto Race",
+	Callback = function()
+      		game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer()
+  	end    
+})
 
 Tab:AddButton({
     Name = "hoop V1",
