@@ -29,12 +29,23 @@ Tab:AddLabel("City Farm")
 Tab:AddButton({
     Name = "Autofarm All Hoops",
     Callback = function()
-              local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+              _G.autoHoopEnabled = false
+_G.autoRaceEnabled = false
+_G.autoRebirthEnabled = false
+_G.rebirthStoppingPoint = nil
 
-for i, v in pairs(workspace.Hoops:GetChildren()) do
-rootpart.CFrame = v.CFrame wait(0.2)
-end
-      end
+Section2:NewButton("Toggle Auto Hoop", "ButtonInfo", function()
+    _G.autoHoopEnabled = not _G.autoHoopEnabled
+    while _G.autoHoopEnabled do
+        wait()
+        local children = workspace.Hoops:GetChildren()
+        for i, child in ipairs(children) do
+            if child.Name == "Hoop" then
+                child.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+            end
+        end
+    end
+end)
 })
 
 Tab:AddButton({
