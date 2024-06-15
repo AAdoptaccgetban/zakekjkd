@@ -27,6 +27,17 @@ OrionLib:MakeNotification({
 Tab:AddLabel("City Farm")
 
 Tab:AddButton({
+    Name = "Autofarm All Hoops",
+    Callback = function()
+              local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+for i, v in pairs(workspace.Hoops:GetChildren()) do
+rootpart.CFrame = v.CFrame wait(0.2)
+end
+      end
+})
+
+Tab:AddButton({
     Name = "City Red Orb",
     Callback = function()
         _G.loop = true
