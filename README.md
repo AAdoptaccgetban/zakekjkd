@@ -27,21 +27,6 @@ OrionLib:MakeNotification({
 Tab:AddLabel("City Farm")
 
 Tab:AddButton({
-	Name = "Auto Race",
-	Callback = function()
-      		game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer()
-  	end    
-})
-
-Tab:AddButton({
-    Name = "hoop V1",
-    Callback = function()
-        _G.loop = true
-        game:GetService("ReplicatedStorage").rEvents.hoopEvent:FireServer()
-
-})
-
-Tab:AddButton({
     Name = "City Red Orb",
     Callback = function()
         _G.loop = true
@@ -94,7 +79,6 @@ Tab:AddButton({
         end
     end
 })
-
 
 Tab:AddButton({
 	Name = "Auto Race",
