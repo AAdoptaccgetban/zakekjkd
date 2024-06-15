@@ -29,23 +29,12 @@ Tab:AddLabel("City Farm")
 Tab:AddButton({
     Name = "Autofarm All Hoops",
     Callback = function()
-              _G.autoHoopEnabled = false
-_G.autoRaceEnabled = false
-_G.autoRebirthEnabled = false
-_G.rebirthStoppingPoint = nil
+              local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
 
-Section2:NewButton("Toggle Auto Hoop", "ButtonInfo", function()
-    _G.autoHoopEnabled = not _G.autoHoopEnabled
-    while _G.autoHoopEnabled do
-        wait()
-        local children = workspace.Hoops:GetChildren()
-        for i, child in ipairs(children) do
-            if child.Name == "Hoop" then
-                child.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-            end
-        end
-    end
-end)
+for i, v in pairs(workspace.Hoops:GetChildren()) do
+rootpart.CFrame = v.CFrame wait(0.2)
+end
+      end
 })
 
 Tab:AddButton({
@@ -100,11 +89,4 @@ Tab:AddButton({
             end
         end
     end
-})
-
-Tab:AddButton({
-	Name = "Auto Race",
-	Callback = function()
-      		game:GetService("ReplicatedStorage").rEvents.raceEvent:FireServer()
-  	end    
 })
