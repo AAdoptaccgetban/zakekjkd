@@ -26,14 +26,16 @@ OrionLib:MakeNotification({
 
 Tab:AddLabel("City Farm")
 
-Tab:AddButton({
-    Name = "Autofarm All Hoops",
-    Callback = function()
-              while true do
+Tab:AddToggle({
+    Name = "This is a toggle!",
+    Default = false,
+    Callback = function(Value)
+        while true do
   local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
 
 for i, v in pairs(workspace.Hoops:GetChildren()) do rootpart.CFrame = v.CFrame wait(0.2) end end
 end
+    end
 })
 
 Tab:AddButton({
