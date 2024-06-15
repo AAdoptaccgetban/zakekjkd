@@ -29,12 +29,11 @@ Tab:AddLabel("City Farm")
 Tab:AddButton({
     Name = "Autofarm All Hoops",
     Callback = function()
-              local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
+              while true do
+  local rootpart = game.Players.LocalPlayer.Character.HumanoidRootPart
 
-for i, v in pairs(workspace.Hoops:GetChildren()) do
-rootpart.CFrame = v.CFrame wait(0.2)
+for i, v in pairs(workspace.Hoops:GetChildren()) do rootpart.CFrame = v.CFrame wait(0.2) end end
 end
-      end
 })
 
 Tab:AddButton({
